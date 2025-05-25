@@ -36,16 +36,37 @@ This project is a simple smart irrigation system that monitors soil moisture, te
 ### WiFi
 
 Update the following lines with your Wi-Fi credentials:
-```cpp
+
 const char *ssid =  "Your_SSID";
 const char *pass =  "Your_PASSWORD";
-
-## Configuration
 
 ### ThingSpeak
 
 Replace the following with your ThingSpeak **Write API Key**:
 
-```cpp
 String apiKey = "YOUR_THINGSPEAK_WRITE_API_KEY";
 ### IFTTT
+Set your IFTTT Webhook Event Name and Key:
+
+- const char* eventName1 = "Moisture_sensor_data";
+- const char* key1 = "YOUR_IFTTT_WEBHOOK_KEY";
+- 
+## Irrigation Logic
+If moisture < 34%:
+- Turns motor ON
+- Sends alert via IFTTT
+
+If moisture > 35%:
+- Turns motor OFF
+- Sends alert via IFTTT
+## Data Monitoring
+- View real-time sensor data on the ThingSpeak Dashboard
+- Receive email alerts via IFTTT Webhooks
+
+## 🔮 Future Improvements
+- Add hysteresis control to avoid frequent motor toggling
+- Integrate MQTT or Blynk for real-time remote control
+- Add an OLED display for local data readout
+
+## 📄 License
+- This project is open-source and available under the MIT License.
