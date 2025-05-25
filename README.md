@@ -39,47 +39,35 @@ Update the following lines with your Wi-Fi credentials:
 ```cpp
 const char *ssid =  "Your_SSID";
 const char *pass =  "Your_PASSWORD";
-ThingSpeak
-Replace with your ThingSpeak Write API Key:
 
-cpp
-Copy
-Edit
+**ThingSpeak**
+
+Replace with your ThingSpeak Write API Key:
 String apiKey = "YOUR_THINGSPEAK_WRITE_API_KEY";
+
 IFTTT
 Set your IFTTT Webhook Event Name and Key:
-
-cpp
-Copy
-Edit
 const char* eventName1 = "Moisture_sensor_data";
 const char* key1 = "YOUR_IFTTT_WEBHOOK_KEY";
-Set up a webhook trigger in IFTTT with the URL:
 
-ruby
-Copy
-Edit
-https://maker.ifttt.com/trigger/Moisture_sensor_data/with/key/YOUR_IFTTT_KEY
-🚰 Irrigation Logic
+## Irrigation Logic
 If moisture < 34%: Turns motor ON and sends alert via IFTTT.
 
 If moisture > 35%: Turns motor OFF and sends alert via IFTTT.
 
-📡 Data Monitoring
+## Data Monitoring
 You can visualize sensor readings in real-time via:
 
 ThingSpeak Dashboard for graphs
 
 Email notifications from IFTTT
 
-📷 Example Dashboard
-
-🧠 Future Improvements
+## Future Improvements
 Add hysteresis control to prevent frequent motor toggling
 
 Use MQTT or Blynk for real-time remote control
 
 Add OLED display for local readout
 
-📄 License
+ ## 📄 License
 This project is open-source and available under the MIT License.
