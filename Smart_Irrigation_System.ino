@@ -109,7 +109,8 @@ void loop()
 
 if (moisturePercentage < 34) {
 
-  digitalWrite(motorPin, HIGH);         // tun on motor
+  digitalWrite(motorPin, HIGH);        // tun on motor
+  sendEmailIFTTT(moisturePercentage,t,h);
 
 }
 
@@ -117,7 +118,8 @@ if (moisturePercentage < 34) {
 if (moisturePercentage > 35) {
 
   digitalWrite(motorPin, LOW);          // turn off mottor
-
+  sendEmailIFTTT(moisturePercentage,t,h);
+  
 }
 
 
@@ -193,5 +195,29 @@ void sendThingspeak() {
     Serial.println("%. Sent to Thingspeak.");
 
   }
+  
+  void sendEmailIFTTT(float moisture, float temperature, float humidity) 
+  {
+	  WiFiClient client1;
+	  const char* host1 = "maker.ifttt.com";
+	  const char* eventName1 = "Moisture_sensor_data"; // your IFTTT event name
+	  const char* key1 = "IF45TY34DFWE5";          // replace with your IFTTT key
+
+	  String url = String("/trigger/") + eventName1 + "/with/key/" + key1 +
+				   "?value1=" + moisture +
+				   "&value2=" + temperature +
+				   "&value3=" + humidity;
+
+	  Serial.println("Sending email via IFTTT...");
+
+	  if (client1.connect(host1, 80)) {
+		client1.print(String("GET ") + url + " HTTP/1.1\r\n" +
+					 "Host: " + host1 + "\r\n" +
+					 "Connection: close\r\n\r\n");
+		Serial.println("Email sent!");
+	  } else {
+		Serial.println("Failed to connect to IFTTT.");
+	  }
+}
 
 }
