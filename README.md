@@ -40,4 +40,12 @@ Update the following lines with your Wi-Fi credentials:
 const char *ssid =  "Your_SSID";
 const char *pass =  "Your_PASSWORD";
 
+## Configuration
 
+### ThingSpeak
+
+Replace the following with your ThingSpeak **Write API Key**:
+
+```cpp
+String apiKey = "YOUR_THINGSPEAK_WRITE_API_KEY";
+### IFTTT
