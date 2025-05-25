@@ -51,7 +51,7 @@ Set your IFTTT Webhook Event Name and Key:
 - const char* eventName1 = "Moisture_sensor_data";
 - const char* key1 = "YOUR_IFTTT_WEBHOOK_KEY";
 - 
-## Irrigation Logic
+## 🌊 Irrigation Logic
 If moisture < 34%:
 - Turns motor ON
 - Sends alert via IFTTT
@@ -59,7 +59,7 @@ If moisture < 34%:
 If moisture > 35%:
 - Turns motor OFF
 - Sends alert via IFTTT
-## Data Monitoring
+## 📊 Data Monitoring
 - View real-time sensor data on the ThingSpeak Dashboard
 - Receive email alerts via IFTTT Webhooks
 
